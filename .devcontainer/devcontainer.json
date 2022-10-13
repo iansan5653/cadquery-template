@@ -1,0 +1,34 @@
+{
+	"name": "CadQuery",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	},
+	"forwardPorts": [
+		5000
+	],
+	"portsAttributes": {
+		"5000": {
+			"label": "CadQuery",
+			"onAutoForward": "notify"
+		}
+	},
+	"postStartCommand": "echo '\n\n ➡️ Run `cq-server run` or VSCode task 'Start CadQuery Server' to start preview server.'",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest"
+		}
+	}
+}
